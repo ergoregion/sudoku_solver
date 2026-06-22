@@ -9,22 +9,23 @@ This treats the sudoku problem as an exact cover problem, where:
 ### Options
 
 Up to 729 options.
-Each digit (1->9) can be placed in each cell (81).
++ Each digit (1->9) can be placed in each cell (81).
 729 = 81*9 (eg put a "1" in cell 0,0).
 Some options are excluded by the starting cells of the puzzle.
 
 ### Constraints
 
 324 constraints
-81* there must be exactly one number in the cell.
-81* there must be exactly one "1" (or v) in the column.
-81* there must be exactly one "1" (or v) in the row.
-81* there must be exactly one "1" (or v) in the block.
++ 81* there must be exactly one number in the cell.
++ 81* there must be exactly one "1" (or v) in the column.
++ 81* there must be exactly one "1" (or v) in the row.
++ 81* there must be exactly one "1" (or v) in the block.
 =81*4 = 324
 
 # Solving
 
 We create a boolean matrix where the rows are the options, the columns are the constraints.
+
 The values in the matrix are the boolean of whether the option would resolve the constraint.
 
 Then as an exact cover problem we select a combination of rows such that each constraint is satisfied once and only once.
